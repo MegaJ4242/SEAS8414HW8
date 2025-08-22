@@ -47,7 +47,7 @@ Attribution is **gated** on a malicious verdict and shown in a dedicated Streaml
 ## Quickstart (Windows, Git Bash)
 
 ```bash
-cd "/c/Users/<YOU>/Desktop/cognitive-soar"
+cd "/c/Users/mthomas/Desktop/cognitive-soar"
 
 # Python 3.11 virtualenv
 py -3.11 -m venv .venv || python -m venv .venv
@@ -63,22 +63,22 @@ python -u train_model.py
 # Launch UI
 python -m streamlit run app.py
 
-How it Works
-Synthetic Threat Profiles
+## How it Works
+- Synthetic Threat Profiles
 
 train_model.py generates logical, separable patterns:
 
-State-Sponsored: valid SSL, longer-lived domains, subtle deception, fewer redirects.
+   State-Sponsored: valid SSL, longer-lived domains, subtle deception, fewer redirects.
 
-Organized Cybercrime: URL shorteners, IP hosts, abnormal structure, many redirects.
+   Organized Cybercrime: URL shorteners, IP hosts, abnormal structure, many redirects.
 
-Hacktivist: political keywords, mixed hygiene, opportunistic patterns.
+   Hacktivist: political keywords, mixed hygiene, opportunistic patterns.
 
-Dual-Model Workflow
+- Dual-Model Workflow
 
-Classifier (PyCaret classification) trains on features + label.
+   Classifier (PyCaret classification) trains on features + label.
 
-Clusterer (PyCaret k-means, k=3) trains on malicious-only rows.
+   Clusterer (PyCaret k-means, k=3) trains on malicious-only rows.
 
 A lightweight centroid heuristic maps Cluster {0,1,2} → {State-Sponsored, Organized Cybercrime, Hacktivist} and saves it to models/cluster_profile_map.json.
 
