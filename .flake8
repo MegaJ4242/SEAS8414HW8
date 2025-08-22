@@ -3,7 +3,6 @@ max-line-length = 120
 extend-ignore = E203, W503
 exclude = .git,__pycache__,.venv,venv,build,dist
 
-# Targeted relaxations to pass CI for this assignment
 per-file-ignores =
     app.py:E501
     train_model.py:E501,E702
